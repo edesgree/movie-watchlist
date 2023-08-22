@@ -13,17 +13,21 @@ const movies = ref([]);
 
 // get API data
 const handleSearch = async (searchQuery) => {
-  movies.value = await fetchMovies(searchQuery); // call the api service
+  // first API call to get basic movie info
+  const basicMovies = await fetchMovies(searchQuery);
 
-  //loop through movies and fetch more detail by using fetchMovieById
-  movies.value.forEach(async (movie) => {
-    movie.Plot = await fetchMovieById(movie.imdbID);
-  });
-
-  // Loop through movies and add isWatched property
-  movies.value.forEach((movie) => {
-    movie.isWatched = store.moviesList.some((m) => m.imdbID === movie.imdbID);
-  });
+  //loop through movies and fetch more detail by using a second API call (fetchMovieById)
+  const detailedMovies = await Promise.all(
+    basicMovies.map(async (movie) => {
+      const details = await fetchMovieById(movie.imdbID);
+      //  complete the object with details and isWatched property to each movie object (gets true if matching ids)
+      return {
+        ...details,
+        isWatched: store.moviesList.some((m) => m.imdbID === movie.imdbID)
+      };
+    })
+  );
+  movies.value = detailedMovies;
   console.log('movies', movies.value);
 };
 </script>

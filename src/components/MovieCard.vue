@@ -17,12 +17,14 @@ const store = useMoviesStore();
     />
     <div class="movie-details">
       <div class="movie-title">
-        <h2 class="movie-title-text">{{ movie.Title }}</h2>
-        <div class="movie-title-rating">⭐ <span>8.0</span></div>
+        <h2 class="movie-title-text">{{ movie.Title }}{{ movie.plot }}</h2>
+        <div class="movie-title-rating">
+          ⭐ <span>{{ movie.imdbRating }}</span>
+        </div>
       </div>
       <div class="movie-info">
-        <span>112min</span>
-        <span>2019</span>
+        <span>{{ movie.Runtime }}</span>
+        <span>{{ movie.Year }}</span>
         <div v-if="type == 'search'">
           <button
             @click.prevent="store.addToWatchlist(movie)"
@@ -39,7 +41,6 @@ const store = useMoviesStore();
       </div>
       <div class="movie-desc">{{ movie.Plot }}</div>
       <p v-if="movie.isWatched">deja vu !</p>
-      <h1>{{ type }}</h1>
     </div>
   </div>
 </template>

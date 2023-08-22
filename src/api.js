@@ -15,6 +15,5 @@ export async function fetchMovieById(id) {
     `https://www.omdbapi.com/?apikey=${apiKEY}&i=${id}&plot=short`
   );
   const data = await response.json();
-  console.log('data by id', data);
-  return data.Plot || [];
+  return data || [];
 }
