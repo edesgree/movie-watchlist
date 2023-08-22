@@ -87,7 +87,7 @@ body {
       background-color: $blue;
       border-color: $blue-darker;
     }
-    &.disabled {
+    &.disabled,&:disabled {
       &,
       &:hover {
         background-color: $grey;

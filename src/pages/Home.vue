@@ -1,34 +1,25 @@
 <script setup>
 import { ref } from 'vue';
 import { useMoviesStore } from '../store';
+import { fetchMovies } from '../api'; // Import the fetchMovies function
 
 import InputField from '../components/InputField.vue';
 import iconPlaceholder from '../assets/img/icon-film.svg';
-const store = useMoviesStore();
 
-const apiKEY = 'ce739ee3';
+const store = useMoviesStore();
 const search = ref('...');
 const movies = ref([]);
 
-// fetch OMDB API with search query
-const fetchMovies = async (query) => {
-  const response = await fetch(
-    `https://www.omdbapi.com/?apikey=${apiKEY}&s=${query}`
-  );
-  const data = await response.json();
-  console.log(data);
-  movies.value = data.Search;
+// get API data
+const handleSearch = async (searchQuery) => {
+  movies.value = await fetchMovies(searchQuery); // call the api service
+  // Loop through movies and add isWatched property
+
+  movies.value.forEach((movie) => {
+    movie.isWatched = store.moviesList.some((m) => m.imdbID === movie.imdbID);
+  });
   console.log('movies', movies.value);
-
-  return data;
 };
-
-// add movie to watchlist
-/*
-const addToWatchlist = (movie) => {
-  store.addToWatchlist(movie);
-  console.log('add to watch list', movie.Title);
-};*/
 </script>
 <template>
   Home
@@ -40,7 +31,7 @@ const addToWatchlist = (movie) => {
       v-on:updated="search = $event"
     ></input-field>
     <div class="input-wrapper">
-      <button @click.prevent="fetchMovies(search)">Search movie</button>
+      <button @click.prevent="handleSearch(search)">Search movie</button>
     </div>
     search for : {{ search }}
   </form>
@@ -53,7 +44,11 @@ const addToWatchlist = (movie) => {
         :alt="movie.Title"
         class="poster"
       />
-      <button @click.prevent="store.addToWatchlist(movie)">
+      <p v-if="movie.isWatched">deja vu !</p>
+      <button
+        @click.prevent="store.addToWatchlist(movie)"
+        :disabled="movie.isWatched"
+      >
         Add to watchlist
       </button>
     </div>
