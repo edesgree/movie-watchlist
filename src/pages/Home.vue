@@ -1,7 +1,7 @@
 <script setup>
 import { ref } from 'vue';
 import { useMoviesStore } from '../store';
-import { fetchMovies } from '../api'; // Import the fetchMovies function
+import { fetchMovies, fetchMovieById } from '../api'; // Import the fetchMovies function
 
 import InputField from '../components/InputField.vue';
 import MovieCard from '../components/MovieCard.vue';
@@ -14,6 +14,11 @@ const movies = ref([]);
 // get API data
 const handleSearch = async (searchQuery) => {
   movies.value = await fetchMovies(searchQuery); // call the api service
+
+  //loop through movies and fetch more detail by using fetchMovieById
+  movies.value.forEach(async (movie) => {
+    movie.Plot = await fetchMovieById(movie.imdbID);
+  });
 
   // Loop through movies and add isWatched property
   movies.value.forEach((movie) => {

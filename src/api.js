@@ -8,3 +8,13 @@ export async function fetchMovies(query) {
   const data = await response.json();
   return data.Search || [];
 }
+
+// fetch OMDB API with movie ID, that gets more details than the one above
+export async function fetchMovieById(id) {
+  const response = await fetch(
+    `https://www.omdbapi.com/?apikey=${apiKEY}&i=${id}&plot=short`
+  );
+  const data = await response.json();
+  console.log('data by id', data);
+  return data.Plot || [];
+}

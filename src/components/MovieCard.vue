@@ -37,7 +37,7 @@ const store = useMoviesStore();
           </button>
         </div>
       </div>
-      <div class="movie-desc">{{ movie.plot }}</div>
+      <div class="movie-desc">{{ movie.Plot }}</div>
       <p v-if="movie.isWatched">deja vu !</p>
       <h1>{{ type }}</h1>
     </div>
