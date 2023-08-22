@@ -5,9 +5,7 @@
 body {
     align-items: flex-start;
     background: $beige;
-    background-image: url('blob-blue.png'), url('blob-yellow.png');
-    background-position: left bottom, right top;
-    background-repeat: no-repeat, no-repeat;
+    color:$dark;
     display: flex;
     font-family: $family-primary;
     font-weight: $weight-normal;
