@@ -9,6 +9,10 @@ export const useMoviesStore = defineStore('movies', {
   actions: {
     addToWatchlist(movie) {
       this.moviesList.push(movie);
+    },
+    removeFromWatchlist(movie) {
+      const index = this.moviesList.findIndex((m) => m.id === movie.id);
+      this.moviesList.splice(index, 1);
     }
   }
 });
