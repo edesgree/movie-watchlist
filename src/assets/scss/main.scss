@@ -1,0 +1,239 @@
+* {
+    box-sizing: border-box;
+    font-family: $family-primary;
+  }
+body {
+    align-items: flex-start;
+    background: $beige;
+    background-image: url('blob-blue.png'), url('blob-yellow.png');
+    background-position: left bottom, right top;
+    background-repeat: no-repeat, no-repeat;
+    display: flex;
+    font-family: $family-primary;
+    font-weight: $weight-normal;
+    justify-content: center;
+    margin: 0;
+    min-height: 100vh;
+    #root{
+      width: 100%;
+    }
+  }
+  header{
+    background:white;
+    border-bottom:solid 4px $dark;
+    padding: 20px;
+    text-align:center;
+    h1{
+      margin: 0;
+    }
+  }
+  .content {
+    align-items: center;
+    animation: grow0 1.5s forwards;
+    border-radius: 15px;
+    display: flex;
+    
+    flex-direction: column;
+    justify-content: center;
+    margin:0 auto;
+    max-width: 650px;
+    min-height: 100vh;
+    min-height: 250px;
+    min-width: 250px;
+    padding: 20px;
+    text-align: center;
+
+
+    
+  }
+  /*Animate width to 100%*/
+  @keyframes grow0 {
+    from {
+      max-width: 250px;
+    }
+    to {
+      max-width: 650px;
+    }
+  }
+  p {
+    text-align: center;
+  }
+  button {
+    background-color: $yellow;
+    border-color: $dark;
+    border-radius: 0;
+    border-style: solid;
+    border-width: 4px;
+    box-shadow: 4px 4px 0px 0px $dark;
+    color:$yellow-darker;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: $weight-medium;
+    padding:  20px;
+    transition: all 0.2s ease-in-out;
+    &:hover {
+        background: darken($yellow, 20%);
+    }
+    &.primary {
+      background: $red;
+      border: none;
+      border-color: $red-dark;
+      box-shadow: 4px 4px 0px 0px $red-dark;
+      color: $red-darker;
+      &:hover {
+        background: darken($red, 20%);
+        color: white;
+      }
+    }
+    &.active {
+      background-color: $blue;
+      border-color: $blue-darker;
+    }
+    &.disabled {
+      &,
+      &:hover {
+        background-color: $grey;
+        border-color: $grey-dark;
+        box-shadow: 4px 4px 0px 0px $dark;
+        color: $grey-darker;
+      }
+    }
+  }
+  
+  .quiz-questions {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    margin-bottom: 40px;
+    .question {
+      border-bottom: solid 4px $dark;
+      padding-bottom: 30px;
+      .question-title {
+        font-weight: $weight-bold;
+        margin-top: 0;
+      }
+      .question-answers {
+        display: grid;
+        gap: 15px;
+        grid-template-columns: 1fr 1fr;
+        justify-content: center;
+        @include mobile {
+            grid-template-columns:  1fr;
+          }
+      }
+    }
+  }
+  h1 {
+    color:$blue;
+    font-size: 4em;
+    margin-top: 0;
+  }
+  h2{
+    font-weight: $weight-bold;
+    margin-bottom: 40px;
+  }
+  .title{
+    background:white;
+    border: 6px solid $dark;
+    border-radius: 15px;
+    color: $red;
+    font-size: 48px;
+    font-weight: $weight-bold;
+    padding: 20px;
+    position: relative;
+    text-align: center;
+    text-shadow: 5px 5px 0px $dark;
+    span{
+    color: $dark;
+    display: block;
+    font-size: 0.5em;
+    font-weight: $weight-bold;
+       text-shadow: none;
+    }
+  }
+  .error{
+    color:$red;
+  }
+  .bold{
+    font-size: larger;
+    font-weight: $weight-bold;
+    line-height: 1.5em;
+  }
+
+// responsive image
+.img-responsive {
+    height: auto;
+    max-width: 100%;
+  }
+
+  .quiz-selection-list{
+    align-items: stretch;
+    display: flex;
+    flex-direction: column;
+    gap:10px;
+    // remove bullets
+    list-style: none;
+    //same height
+    padding-left: 0;
+    li{
+      
+      width: 100%;
+      img{
+        height: 60px;
+        width: 60px;
+      }
+      button{
+        align-items: center;
+        display: flex;
+        padding: 0;
+        width: 100%;
+        span{
+          display: block;
+          flex:1;
+          padding: 10px 20px;
+          text-align: center;
+        }
+      }
+    }
+  }
+
+  //loading animation
+.spinner {
+  border-radius: 50%;
+  height: 50px;
+  width: 50px;
+
+  .line {
+    animation: 2156ms spinner-arc ease-in-out infinite,
+      1829ms spinner-rotate linear infinite;
+    fill: none;
+    opacity: $line-alpha;
+    stroke: $line-color;
+    stroke-linecap: round;
+    stroke-width: $ring-size;
+    transform: rotate3d(0, 0, 1, 0deg);
+    transform-origin: 50% 50%;
+  }
+  .ring {
+    fill: none;
+    opacity: $ring-alpha;
+    stroke: $ring-color;
+    stroke-width: $ring-size;
+  }
+}
+@keyframes spinner-rotate {
+  to {
+    transform: rotate3d(0, 0, 1, 360deg);
+  }
+}
+@keyframes spinner-arc {
+  from {
+    stroke-dasharray: 0 150;
+    stroke-dashoffset: 0;
+  }
+  to {
+    stroke-dasharray: 100 150;
+    stroke-dashoffset: -140;
+  }
+}
+
