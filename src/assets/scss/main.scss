@@ -4,8 +4,8 @@
   }
 body {
     align-items: flex-start;
-    background: $beige;
-    color:$dark;
+    background: $dark;
+    color:$dark-white;
     display: flex;
     font-family: $family-primary;
     font-weight: $weight-normal;
@@ -17,12 +17,53 @@ body {
     }
   }
   header{
-    background:white;
+    align-items: center;
+    background:$grey-dark;
     border-bottom:solid 4px $dark;
+    display: flex;
+    gap:20px;
+    justify-content: space-between;
     padding: 20px;
     text-align:center;
     h1{
       margin: 0;
+    }
+    .logo{
+      align-items: center;
+      color:$dark-white;
+      display: flex;
+      flex-direction: row;
+      img{
+        max-width: 50px;
+      }
+    }
+  }
+  .search-form{
+    align-items: center;
+    display: flex;
+    gap: 0;
+    .input-wrapper{
+      label{
+        display: none;
+      }
+      .search-input{
+        background: $grey-darker;
+        background-image: url('#{$get-path-to-assets}icon-search.svg');
+        background-position: 10px center;
+        background-repeat: no-repeat;
+        border:solid 1px $green-darker;
+        padding-left: 32px
+      }
+    }
+    .submit-wrapper{
+      button{
+        border:0;
+        margin: 0;
+        margin-left: 20px;
+      }
+    }
+    input,button{
+      height: 40px;
     }
   }
   .content {
@@ -41,8 +82,6 @@ body {
     padding: 20px;
     text-align: center;
 
-
-    
   }
   /*Animate width to 100%*/
   @keyframes grow0 {
@@ -98,19 +137,19 @@ body {
     }
   }
   
-  .quiz-questions {
+  .movies-list {
     display: flex;
     flex-direction: column;
     gap: 30px;
     margin-bottom: 40px;
-    .question {
+    .movie {
       border-bottom: solid 4px $dark;
       padding-bottom: 30px;
-      .question-title {
+      .movie-title {
         font-weight: $weight-bold;
         margin-top: 0;
       }
-      .question-answers {
+      .movie-info {
         display: grid;
         gap: 15px;
         grid-template-columns: 1fr 1fr;
@@ -121,11 +160,8 @@ body {
       }
     }
   }
-  h1 {
-    color:$blue;
-    font-size: 4em;
-    margin-top: 0;
-  }
+ 
+  
   h2{
     font-weight: $weight-bold;
     margin-bottom: 40px;
@@ -164,37 +200,7 @@ body {
     max-width: 100%;
   }
 
-  .quiz-selection-list{
-    align-items: stretch;
-    display: flex;
-    flex-direction: column;
-    gap:10px;
-    // remove bullets
-    list-style: none;
-    //same height
-    padding-left: 0;
-    li{
-      
-      width: 100%;
-      img{
-        height: 60px;
-        width: 60px;
-      }
-      button{
-        align-items: center;
-        display: flex;
-        padding: 0;
-        width: 100%;
-        span{
-          display: block;
-          flex:1;
-          padding: 10px 20px;
-          text-align: center;
-        }
-      }
-    }
-  }
-
+  
   //loading animation
 .spinner {
   border-radius: 50%;

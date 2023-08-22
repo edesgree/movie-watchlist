@@ -3,7 +3,8 @@ import { ref } from 'vue';
 
 defineProps({
   label: String,
-  unique: String
+  unique: String,
+  class: String
 });
 const value = ref('');
 </script>
@@ -16,6 +17,7 @@ const value = ref('');
       :id="unique"
       v-model="value"
       v-on:input="$emit('updated', value)"
+      :class="class"
     />
   </div>
 </template>
