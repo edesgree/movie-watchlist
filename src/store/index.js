@@ -20,7 +20,7 @@ export const useMoviesStore = defineStore('movies', {
       }
     },
     removeFromWatchlist(movie) {
-      const index = this.moviesList.findIndex((m) => m.id === movie.id);
+      const index = this.moviesList.findIndex((m) => m.imdbID === movie.imdbID);
       this.moviesList.splice(index, 1);
       localStorage.setItem('watchlist', JSON.stringify(this.moviesList));
     }
