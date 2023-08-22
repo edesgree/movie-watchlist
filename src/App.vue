@@ -1,4 +1,6 @@
 <script setup>
+import { ref } from 'vue';
+
 import HelloWorld from './components/HelloWorld.vue';
 </script>
 
@@ -12,7 +14,7 @@ import HelloWorld from './components/HelloWorld.vue';
     </a>
     <ul>
       <li><router-link to="/">Home</router-link></li>
-      <li><router-link to="/watchlist">Foo</router-link></li>
+      <li><router-link to="/watchlist">My watch list</router-link></li>
     </ul>
     <router-view></router-view>
   </div>
