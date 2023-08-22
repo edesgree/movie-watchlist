@@ -3,6 +3,7 @@ import { ref } from 'vue';
 import { useMoviesStore } from '../store';
 
 import InputField from '../components/InputField.vue';
+import iconPlaceholder from '../assets/img/icon-film.svg';
 const store = useMoviesStore();
 
 const apiKEY = 'ce739ee3';
@@ -23,10 +24,11 @@ const fetchMovies = async (query) => {
 };
 
 // add movie to watchlist
+/*
 const addToWatchlist = (movie) => {
   store.addToWatchlist(movie);
   console.log('add to watch list', movie.Title);
-};
+};*/
 </script>
 <template>
   Home
@@ -45,8 +47,15 @@ const addToWatchlist = (movie) => {
   <div class="results">
     <div v-for="movie in movies" :key="movie.imdbID">
       <h2>{{ movie.Title }}</h2>
-      <img :src="movie.Poster" :alt="movie.Title" />
-      <button @click.prevent="addToWatchlist(movie)">Add to watchlist</button>
+
+      <img
+        :src="movie.Poster === 'N/A' ? iconPlaceholder : movie.Poster"
+        :alt="movie.Title"
+        class="poster"
+      />
+      <button @click.prevent="store.addToWatchlist(movie)">
+        Add to watchlist
+      </button>
     </div>
   </div>
 </template>

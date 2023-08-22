@@ -1,12 +1,8 @@
 <script setup>
-import { ref } from 'vue';
 import { useMoviesStore } from '../store';
 
-//get the watchlist from local storage
-// const watchlist = ref(JSON.parse(localStorage.getItem('watchlist')) || []);
 const store = useMoviesStore();
-//const watchlist = ref(store.moviesList);
-console.log('watchlist', store.moviesList);
+console.log('moviesList', store.moviesList);
 </script>
 <template>
   Watchlist
