@@ -4,6 +4,7 @@ import { useMoviesStore } from '../store';
 import { fetchMovies } from '../api'; // Import the fetchMovies function
 
 import InputField from '../components/InputField.vue';
+import MovieCard from '../components/MovieCard.vue';
 import iconPlaceholder from '../assets/img/icon-film.svg';
 
 const store = useMoviesStore();
@@ -35,21 +36,8 @@ const handleSearch = async (searchQuery) => {
   </form>
   {{ search }}
   <ul class="movies-list">
-    <li class="movie" v-for="movie in movies" :key="movie.imdbID">
-      <h2 class="movie-title">{{ movie.Title }}</h2>
-
-      <img
-        :src="movie.Poster === 'N/A' ? iconPlaceholder : movie.Poster"
-        :alt="movie.Title"
-        class="poster"
-      />
-      <p v-if="movie.isWatched">deja vu !</p>
-      <button
-        @click.prevent="store.addToWatchlist(movie)"
-        :disabled="movie.isWatched"
-      >
-        Add to watchlist
-      </button>
+    <li v-for="movie in movies" :key="movie.imdbID">
+      <movie-card :movie="movie" type="search" />
     </li>
   </ul>
 </template>

@@ -1,8 +1,6 @@
 <script setup>
 import { ref } from 'vue';
 import iconLogo from './assets/img/icon-movie.svg';
-
-import HelloWorld from './components/HelloWorld.vue';
 </script>
 
 <template>

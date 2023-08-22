@@ -141,22 +141,38 @@ body {
     display: flex;
     flex-direction: column;
     gap: 30px;
+    list-style-type: none;
     margin-bottom: 40px;
+    padding-left: 0;
     .movie {
-      border-bottom: solid 4px $dark;
+      border-bottom: solid 1px $grey-dark;
+      display: flex;
+      gap:30px;
+      justify-content: space-between;
       padding-bottom: 30px;
-      .movie-title {
-        font-weight: $weight-bold;
-        margin-top: 0;
-      }
-      .movie-info {
-        display: grid;
-        gap: 15px;
-        grid-template-columns: 1fr 1fr;
-        justify-content: center;
-        @include mobile {
-            grid-template-columns:  1fr;
+      .movie-details {
+        .movie-title {
+          align-items: center;
+          display: flex;
+          gap:10px;
+          margin-bottom: 20px;
+          margin-top: 0;
+          .movie-title-text{
+            font-weight: $weight-bold;
+            margin: 0;
           }
+          .movie-title-rating{
+            font-size: 1em;
+            font-weight: $weight-bold;
+          }
+        }
+        .movie-info{
+          display: flex;
+          gap: 20px;
+        }
+        .movie-desc{
+          color:$grey;
+        }
       }
     }
   }
