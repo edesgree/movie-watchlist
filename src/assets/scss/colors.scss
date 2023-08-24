@@ -1,9 +1,8 @@
 
-[data-theme=dark] {
-    --primary: #8e24aa;
-    --form-element-border-color: #374956;
-    --form-element-background-color: #11191f;
-  }
+:root{
+    --blue: #303284;
+    --purple:rgb(147 30 140);
+}
 $pink: #f8bcbc;
 $background:#001220;
 $dark-blue: #293264;
@@ -32,3 +31,9 @@ $blue:#3C9BF2;
 $blue-dark:#163959;
 $blue-darker:#102940;
 
+[data-theme=dark] {
+    --primary: var(--purple);
+    --primary-hover: var(--blue);
+    --form-element-border-color: #374956;
+    --form-element-background-color: #11191f;
+  }

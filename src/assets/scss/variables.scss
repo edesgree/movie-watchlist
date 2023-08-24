@@ -9,7 +9,7 @@ $weight-medium: 700;
 $weight-bold: 900;
 $title-weight: $weight-bold;
 $subtitle-weight: $weight-medium;
-
+$border-radius: 10px;
 $get-path-to-assets: 'src/assets/img/';
 
 @mixin mobile {

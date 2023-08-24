@@ -8,14 +8,13 @@ import Search from './components/Search.vue';
   <main class="container">
     <header>
       <nav>
-        <router-link to="/">
-          <div class="logo">
-            <hgroup>
-              <h1>🍿 Movizz</h1>
-              <h2>keep a watch list</h2>
-            </hgroup>
-          </div>
-        </router-link>
+        <div class="logo">
+          <hgroup>
+            <router-link to="/"><h1>🍿 Movizz</h1></router-link>
+            <h2>keep a watch list</h2>
+          </hgroup>
+        </div>
+
         <ul>
           <li>
             <Search></Search>
