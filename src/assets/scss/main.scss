@@ -148,10 +148,13 @@ body {
     padding-top: 40px;
     li{
       list-style-type: none;
+      &:not(:last-child){
+        border-bottom: solid 1px $grey-dark;
+      }
     }
     .movie {
       align-items: flex-start;
-      border-bottom: solid 1px $grey-dark;
+      
       display: flex;
       gap:30px;
       justify-content: space-between;

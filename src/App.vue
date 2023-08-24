@@ -20,7 +20,11 @@ import Search from './components/Search.vue';
           <li>
             <Search></Search>
           </li>
-          <li><router-link to="/watchlist">❤️ My watch list</router-link></li>
+          <li>
+            <router-link to="/watchlist" role="button"
+              >❤️ My watch list</router-link
+            >
+          </li>
         </ul>
       </nav>
     </header>

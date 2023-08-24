@@ -41,6 +41,7 @@ const handleSearch = async (searchQuery) => {
       unique="search"
       label="Search"
       class="search-input"
+      placeholder="Search for a movie"
       v-on:updated="search = $event"
     ></input-field>
     <div class="submit-wrapper">

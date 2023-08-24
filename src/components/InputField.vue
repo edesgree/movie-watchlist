@@ -4,7 +4,8 @@ import { ref } from 'vue';
 defineProps({
   label: String,
   unique: String,
-  class: String
+  class: String,
+  placeholder: String
 });
 const value = ref('');
 </script>
@@ -18,6 +19,7 @@ const value = ref('');
       v-model="value"
       v-on:input="$emit('updated', value)"
       :class="class"
+      :placeholder="placeholder"
     />
   </div>
 </template>
