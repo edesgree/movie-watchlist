@@ -1,5 +1,6 @@
 <script setup>
-import { ref } from 'vue';
+import { ref, watch, onMounted } from 'vue';
+
 import { useMoviesStore } from '../store';
 import { fetchMovies, fetchMovieById } from '../api'; // Import the fetchMovies function
 import router from '../router';
@@ -47,6 +48,24 @@ const handleSearch = async (searchQuery) => {
     store.loading = false;
   }
 };
+
+// Watch for changes to the query parameter
+watch(
+  () => router.currentRoute.value.query.q,
+  (newQuery) => {
+    if (newQuery) {
+      handleSearch(newQuery);
+    }
+  }
+);
+
+// Call handleSearch function on component mount if query parameter is present
+onMounted(() => {
+  const initialQuery = router.currentRoute.value.query.q;
+  if (initialQuery) {
+    handleSearch(initialQuery);
+  }
+});
 </script>
 <template>
   <form method="post" action="#" class="search-form">
