@@ -18,6 +18,13 @@ export const useMoviesStore = defineStore('movies', {
         this.myWatchList.unshift(movie);
         localStorage.setItem('watchlist', JSON.stringify(this.myWatchList));
         console.log('movie added');
+
+        // set selected to true
+        const currentSelection = this.moviesResult.find(
+          (m) => m.imdbID === movie.imdbID
+        );
+        console.log('currentSelection', currentSelection);
+        currentSelection.selected = true;
       } else {
         console.log('movie already in list');
       }
@@ -27,6 +34,13 @@ export const useMoviesStore = defineStore('movies', {
         (m) => m.imdbID === movie.imdbID
       );
       this.myWatchList.splice(index, 1);
+      localStorage.setItem('watchlist', JSON.stringify(this.myWatchList));
+    },
+    markAsWatched(movie) {
+      const currentSelection = this.myWatchList.find(
+        (m) => m.imdbID === movie.imdbID
+      );
+      currentSelection.watched = true;
       localStorage.setItem('watchlist', JSON.stringify(this.myWatchList));
     }
   }

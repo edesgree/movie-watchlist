@@ -7,7 +7,7 @@ import Search from './components/Search.vue';
 <template>
   <main class="container">
     <header>
-      <nav>
+      <nav class="nav">
         <div class="logo">
           <hgroup>
             <router-link to="/"><h1>🍿 Movizz</h1></router-link>
