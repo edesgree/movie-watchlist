@@ -40,8 +40,9 @@ export const useMoviesStore = defineStore('movies', {
       const currentSelection = this.myWatchList.find(
         (m) => m.imdbID === movie.imdbID
       );
-      currentSelection.watched = true;
+      currentSelection.isWatched = true;
       localStorage.setItem('watchlist', JSON.stringify(this.myWatchList));
+      console.log('movie marked as watched', movie.isWatched);
     }
   }
 });

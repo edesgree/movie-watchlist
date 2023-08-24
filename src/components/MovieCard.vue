@@ -55,7 +55,7 @@ const store = useMoviesStore();
         </div>
       </div>
       <div class="movie-desc">{{ movie.Plot }}</div>
-      <p v-if="movie.isWatched">deja vu !</p>
+      <p v-if="movie.isWatched && type == 'watchlist'">deja vu !</p>
     </div>
   </div>
 </template>
