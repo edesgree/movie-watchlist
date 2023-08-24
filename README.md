@@ -30,6 +30,7 @@ It is bootstraped with Vite.js.
 - Can save movie to a watchlist
 - Can mark movie as watched
 - Can remove movie from watchlist
+- Data saved in local storage
 
 ## What I learned
 
