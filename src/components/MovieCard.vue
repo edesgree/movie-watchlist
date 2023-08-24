@@ -28,15 +28,20 @@ const store = useMoviesStore();
         <span>{{ movie.Year }}</span>
         <div v-if="type == 'search'">
           <button
+            v-if="!movie.isWatched"
+            class="btn-sm"
             @click.prevent="store.addToWatchlist(movie)"
             :disabled="movie.isWatched"
           >
-            Add to watchlist
+            ❤️
           </button>
         </div>
         <div v-else>
-          <button @click.prevent="store.removeFromWatchlist(movie)">
-            remove
+          <button
+            class="btn-sm"
+            @click.prevent="store.removeFromWatchlist(movie)"
+          >
+            remove ❌
           </button>
         </div>
       </div>

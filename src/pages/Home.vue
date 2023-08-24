@@ -7,7 +7,7 @@ import iconPlaceholder from '../assets/img/icon-film.svg';
 const store = useMoviesStore();
 </script>
 <template>
-  <ul v-if="store.moviesResult" class="movies-list">
+  <ul v-if="store.moviesResult" class="movies-list" :aria-busy="store.loading">
     <li v-for="movie in store.moviesResult" :key="movie.imdbID">
       <movie-card :movie="movie" type="search" />
     </li>

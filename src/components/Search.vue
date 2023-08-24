@@ -10,22 +10,29 @@ const search = ref('...');
 
 // get API data
 const handleSearch = async (searchQuery) => {
-  // first API call to get basic movie info
-  const basicMovies = await fetchMovies(searchQuery);
+  store.loading = true;
+  store.moviesResult = [];
+  try {
+    // first API call to get basic movie info
+    const basicMovies = await fetchMovies(searchQuery);
 
-  //loop through movies and fetch more detail by using a second API call (fetchMovieById)
-  const detailedMovies = await Promise.all(
-    basicMovies.map(async (movie) => {
-      const details = await fetchMovieById(movie.imdbID);
-      //  complete the object with details and isWatched property to each movie object (gets true if matching ids)
-      return {
-        ...details,
-        isWatched: store.myWatchList.some((m) => m.imdbID === movie.imdbID)
-      };
-    })
-  );
-  store.moviesResult = detailedMovies;
-  console.log('movies', store.moviesResult);
+    //loop through movies and fetch more detail by using a second API call (fetchMovieById)
+    const detailedMovies = await Promise.all(
+      basicMovies.map(async (movie) => {
+        const details = await fetchMovieById(movie.imdbID);
+        //  complete the object with details and isWatched property to each movie object (gets true if matching ids)
+        return {
+          ...details,
+          isWatched: store.myWatchList.some((m) => m.imdbID === movie.imdbID)
+        };
+      })
+    );
+    store.moviesResult = detailedMovies;
+  } catch (error) {
+    console.log(error);
+  } finally {
+    store.loading = false;
+  }
 };
 </script>
 <template>
@@ -40,5 +47,4 @@ const handleSearch = async (searchQuery) => {
       <button @click.prevent="handleSearch(search)">Search</button>
     </div>
   </form>
-  {{ search }}
 </template>
