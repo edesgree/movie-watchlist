@@ -39,6 +39,15 @@ const store = useMoviesStore();
         </div>
         <div class="buttons-group" v-else>
           <button
+            class="btn-sm"
+            data-tooltip="seen it!"
+            v-if="movie.isWatched && type == 'watchlist'"
+            disabled
+          >
+            ✅
+          </button>
+          <button
+            v-else
             data-tooltip="I have watched it!"
             class="btn-sm"
             @click.prevent="store.markAsWatched(movie)"
@@ -55,7 +64,6 @@ const store = useMoviesStore();
         </div>
       </div>
       <div class="movie-desc">{{ movie.Plot }}</div>
-      <p v-if="movie.isWatched && type == 'watchlist'">deja vu !</p>
     </div>
   </div>
 </template>
