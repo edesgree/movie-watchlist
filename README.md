@@ -1,7 +1,43 @@
-# Vue 3 + Vite
+# Movie watch list in Vue JS (3)
 
-This template should help get you started developing with Vue 3 in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+The project is to build a small app to keep a list of movies i want to watch.
+It is bootstraped with Vite.js.
 
-## Recommended IDE Setup
+🔗 **Live preview:** [here](https://jolly-madeleine-93d3fe.netlify.app/)
 
-- [VS Code](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+### Screenshot
+
+![screenshot](./screenshot.png)
+
+## Built with
+
+### Technologies
+
+- HTML
+- CSS
+- Vue JS
+- Pinia for state management
+- Vue Router
+
+### Tools
+
+- Vite
+- Pico CSS (Tiny CSS framework)
+
+## Features
+
+- Simple one page app with movie search (multiple calls to OMDB api)
+- Can save movie to a watchlist
+- Can mark movie as watched
+- Can remove movie from watchlist
+
+## What I learned
+
+- Better knowledge of **Vue JS**.(Pinia and vue router)
+- Try PicoCSS
+
+## Author
+
+👤 **Edouard Desgrée**
+
+- GitHub: [edesgree](https://github.com/edesgree)

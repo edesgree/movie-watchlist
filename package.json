@@ -10,7 +10,6 @@
   },
   "dependencies": {
     "@picocss/pico": "^1.5.10",
-    "normalize.css": "^8.0.1",
     "sass": "^1.66.1",
     "vue": "^3.3.4",
     "vue-router": "^4.2.4"
