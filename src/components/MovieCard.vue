@@ -1,5 +1,6 @@
 <script setup>
 import { useMoviesStore } from '../store';
+import iconPlaceholder from '../assets/img/icon-film.svg';
 
 defineProps({
   type: String,

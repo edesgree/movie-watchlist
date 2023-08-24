@@ -1,6 +1,7 @@
 <script setup>
 import { ref } from 'vue';
 import iconLogo from './assets/img/icon-movie.svg';
+import Search from './components/Search.vue';
 </script>
 
 <template>
@@ -22,9 +23,11 @@ import iconLogo from './assets/img/icon-movie.svg';
           </li>
         </ul>
         <ul>
-          <li><router-link to="/watchlist">My watch list</router-link></li>
-          <li><a href="#">Link</a></li>
+          <li>
+            <Search></Search>
+          </li>
           <li><a href="#" role="button">Button</a></li>
+          <li><router-link to="/watchlist">My watch list</router-link></li>
         </ul>
       </nav>
     </header>
