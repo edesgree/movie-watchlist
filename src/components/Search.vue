@@ -12,22 +12,31 @@ const search = ref('...');
 const handleSearch = async (searchQuery) => {
   store.loading = true;
   store.moviesResult = [];
+  store.searchError = '';
   try {
     // first API call to get basic movie info
     const basicMovies = await fetchMovies(searchQuery);
+    console.log('basicMovies', basicMovies);
 
-    //loop through movies and fetch more detail by using a second API call (fetchMovieById)
-    const detailedMovies = await Promise.all(
-      basicMovies.map(async (movie) => {
-        const details = await fetchMovieById(movie.imdbID);
-        //  complete the object with details and isWatched property to each movie object (gets true if matching ids)
-        return {
-          ...details,
-          isWatched: store.myWatchList.some((m) => m.imdbID === movie.imdbID)
-        };
-      })
-    );
-    store.moviesResult = detailedMovies;
+    //display error if no movie found
+    if (basicMovies.Error) {
+      store.searchError = basicMovies.Error;
+    } else if (Array.isArray(basicMovies.Search)) {
+      //loop through movies and fetch more detail by using a second API call (fetchMovieById)
+      const detailedMovies = await Promise.all(
+        basicMovies.Search.map(async (movie) => {
+          const details = await fetchMovieById(movie.imdbID);
+          //  complete the object with details and isWatched property to each movie object (gets true if matching ids)
+          return {
+            ...details,
+            isWatched: store.myWatchList.some((m) => m.imdbID === movie.imdbID)
+          };
+        })
+      );
+      store.moviesResult = detailedMovies;
+    } else {
+      store.searchError = 'unexpected error';
+    }
   } catch (error) {
     console.log(error);
   } finally {

@@ -2,7 +2,6 @@
 import { useMoviesStore } from '../store';
 
 import MovieCard from '../components/MovieCard.vue';
-import iconPlaceholder from '../assets/img/icon-film.svg';
 
 const store = useMoviesStore();
 </script>
@@ -12,4 +11,5 @@ const store = useMoviesStore();
       <movie-card :movie="movie" type="search" />
     </li>
   </ul>
+  <p>{{ store.searchError }}</p>
 </template>

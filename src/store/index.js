@@ -3,6 +3,7 @@ export const useMoviesStore = defineStore('movies', {
   state: () => ({
     myWatchList: JSON.parse(localStorage.getItem('watchlist')) || [],
     moviesResult: [],
+    searchError: '',
     loading: false
   }),
   getters: {
