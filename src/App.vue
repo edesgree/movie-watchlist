@@ -8,26 +8,19 @@ import Search from './components/Search.vue';
   <main class="container">
     <header>
       <nav>
-        <ul>
-          <li>
-            <router-link to="/">
-              <div class="logo">
-                <img :src="iconLogo" class="logo" alt="movie watchlist" />
-
-                <hgroup>
-                  <h1>Movizz</h1>
-                  <h2>A simple way to keep a movie watch list</h2>
-                </hgroup>
-              </div>
-            </router-link>
-          </li>
-        </ul>
+        <router-link to="/">
+          <div class="logo">
+            <hgroup>
+              <h1>🍿 Movizz</h1>
+              <h2>keep a watch list</h2>
+            </hgroup>
+          </div>
+        </router-link>
         <ul>
           <li>
             <Search></Search>
           </li>
-          <li><a href="#" role="button">Button</a></li>
-          <li><router-link to="/watchlist">My watch list</router-link></li>
+          <li><router-link to="/watchlist">❤️ My watch list</router-link></li>
         </ul>
       </nav>
     </header>

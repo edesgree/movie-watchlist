@@ -1,9 +1,11 @@
 
-:root {
+[data-theme=dark] {
     --primary: #8e24aa;
+    --form-element-border-color: #374956;
+    --form-element-background-color: #11191f;
   }
 $pink: #f8bcbc;
-
+$background:#001220;
 $dark-blue: #293264;
 $dark-white: #f5f7fb;
 $light-blue: #d6dbf5;
@@ -30,23 +32,3 @@ $blue:#3C9BF2;
 $blue-dark:#163959;
 $blue-darker:#102940;
 
-/* Pink Light scheme (Default) */
-/* Can be forced with data-theme="light" */
-[data-theme="light"],
-:root:not([data-theme="dark"]) {
-  --primary: #d81b60;
-  --primary-hover: #c2185b;
-  --primary-focus: rgba(216, 27, 96, 0.125);
-  --primary-inverse: #FFF;
-}
-
-/* Pink Dark scheme (Auto) */
-/* Automatically enabled if user has Dark mode enabled */
-@media only screen and (prefers-color-scheme: dark) {
-  :root:not([data-theme]) {
-    --primary: #d81b60;
-    --primary-hover: #e91e63;
-    --primary-focus: rgba(216, 27, 96, 0.25);
-    --primary-inverse: #FFF;
-  }
-}
