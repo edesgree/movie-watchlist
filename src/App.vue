@@ -4,17 +4,31 @@ import iconLogo from './assets/img/icon-movie.svg';
 </script>
 
 <template>
-  <div>
+  <main class="container">
     <header>
-      <router-link to="/">
-        <div class="logo">
-          <img :src="iconLogo" class="logo" alt="movie watchlist" />
-          <h1>Movizz</h1>
-        </div></router-link
-      >
-      <router-link to="/watchlist">My watch list</router-link>
+      <nav>
+        <ul>
+          <li>
+            <router-link to="/">
+              <div class="logo">
+                <img :src="iconLogo" class="logo" alt="movie watchlist" />
+
+                <hgroup>
+                  <h1>Movizz</h1>
+                  <h2>A simple way to keep a movie watch list</h2>
+                </hgroup>
+              </div>
+            </router-link>
+          </li>
+        </ul>
+        <ul>
+          <li><router-link to="/watchlist">My watch list</router-link></li>
+          <li><a href="#">Link</a></li>
+          <li><a href="#" role="button">Button</a></li>
+        </ul>
+      </nav>
     </header>
 
     <router-view></router-view>
-  </div>
+  </main>
 </template>

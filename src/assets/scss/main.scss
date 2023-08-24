@@ -1,20 +1,11 @@
-* {
-    box-sizing: border-box;
-    font-family: $family-primary;
-  }
+
+  
 body {
-    align-items: flex-start;
-    background: $dark;
-    color:$dark-white;
-    display: flex;
+    
     font-family: $family-primary;
     font-weight: $weight-normal;
-    justify-content: center;
-    margin: 0;
-    min-height: 100vh;
-    #root{
-      width: 100%;
-    }
+    
+
   }
   header{
     align-items: center;
@@ -47,24 +38,19 @@ body {
         display: none;
       }
       .search-input{
-        background: $grey-darker;
         background-image: url('#{$get-path-to-assets}icon-search.svg');
         background-position: 10px center;
         background-repeat: no-repeat;
-        border:solid 1px $green-darker;
         padding-left: 32px
       }
     }
     .submit-wrapper{
       button{
-        border:0;
-        margin: 0;
+        
         margin-left: 20px;
       }
     }
-    input,button{
-      height: 40px;
-    }
+   
   }
   .content {
     align-items: center;
@@ -95,6 +81,7 @@ body {
   p {
     text-align: center;
   }
+  /*
   button {
     background-color: $yellow;
     border-color: $dark;
@@ -136,7 +123,7 @@ body {
       }
     }
   }
-  
+  */
   .movies-list {
     display: flex;
     flex-direction: column;

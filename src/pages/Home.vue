@@ -44,7 +44,7 @@ const handleSearch = async (searchQuery) => {
     </div>
   </form>
   {{ search }}
-  <ul class="movies-list">
+  <ul v-if="movies" class="movies-list">
     <li v-for="movie in movies" :key="movie.imdbID">
       <movie-card :movie="movie" type="search" />
     </li>

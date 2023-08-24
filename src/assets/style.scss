@@ -1,6 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;700;900&display=swap');
-
+// Import Pico
+@import "@picocss/pico/scss/pico";
 @import './scss/colors';
 @import './scss/variables';
 @import './scss/main';
 
+// import normalize.css from node_modules
