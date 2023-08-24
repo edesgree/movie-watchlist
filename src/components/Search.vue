@@ -2,7 +2,7 @@
 import { ref } from 'vue';
 import { useMoviesStore } from '../store';
 import { fetchMovies, fetchMovieById } from '../api'; // Import the fetchMovies function
-
+import router from '../router';
 import InputField from '../components/InputField.vue';
 
 const store = useMoviesStore();
@@ -13,6 +13,10 @@ const handleSearch = async (searchQuery) => {
   store.loading = true;
   store.moviesResult = [];
   store.searchError = '';
+
+  // redirect to home page with query string
+  router.push({ path: '/', query: { q: searchQuery } });
+
   try {
     // first API call to get basic movie info
     const basicMovies = await fetchMovies(searchQuery);
